@@ -1,0 +1,19 @@
+@import "normalize.css";
+
+:root {
+    --mainGreenColor: #14BA1B;
+    --secondGreenColor: #4FB853;
+    --mainGrayColor: #EFEFEF;
+    --mainRedColor: #FA0202;
+    --secondRedColor: #D01A1A;
+    --mainWhiteColor: #FFFFFF;
+    --transporentGrayColor: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Roboto;
+}

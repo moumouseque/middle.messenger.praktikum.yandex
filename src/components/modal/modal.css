@@ -1,0 +1,26 @@
+.modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--transporentGrayColor);
+    opacity: 0.5;
+
+    &__body {
+        background-color: var(--mainWhiteColor);
+        padding: 40px;
+        position: relative;
+    }
+
+    &__close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 16px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}

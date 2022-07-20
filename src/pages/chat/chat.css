@@ -1,0 +1,16 @@
+.chat {
+    display: flex;
+    height: 100%;
+
+    &__sidebar {
+        width: 300px;
+        height: 100%;
+        border-right: 1px solid black;
+        padding: 20px 10px 10px;
+        background-color: aliceblue;
+    }
+
+    &__messages {
+        height: 100%;
+    }
+}

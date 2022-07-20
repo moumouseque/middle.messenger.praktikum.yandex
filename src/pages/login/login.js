@@ -7,7 +7,7 @@ import './login.css';
 
 const frameContent = [
     loginForm,
-    link({url: '#signup', text: 'Нет аккаунта?', className: 'login__link'}),
+    link({url: '/signup', text: 'Нет аккаунта?', className: 'login__link'}),
 ]
 const content = frame({title: 'Вход', content: frameContent});
 

@@ -7,7 +7,7 @@ const content = servicePageInfo({
     title: 'Ошибка',
     subtitle: 'Что-то пошло не так',
     linkText: 'Назад к чатам',
-    linkUrl: '#chat',
+    linkUrl: '/chat',
 })
 
 const errorPage = template({content});

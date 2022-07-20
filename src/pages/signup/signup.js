@@ -7,7 +7,7 @@ import './signup.css';
 
 const frameContent = [
     signupForm,
-    link({url: '#login', text: 'Войти'}),
+    link({url: '/login', text: 'Войти', className: 'signup__link'}),
 ]
 const content = frame({title: 'Регистрация', content: frameContent});
 

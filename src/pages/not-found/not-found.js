@@ -7,7 +7,7 @@ const content = servicePageInfo({
     title: '404',
     subtitle: 'Такой страницы нет',
     linkText: 'Назад к чатам',
-    linkUrl: '#chat',
+    linkUrl: 'chat',
 })
 
 const notFound = template({content});

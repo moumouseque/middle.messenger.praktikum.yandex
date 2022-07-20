@@ -8,7 +8,7 @@ export const unregisterEventListener = () => {
 
 }
 
-const handler = () => {
+export const registerEventHandler = () => {
     events.forEach(({selector, eventType, handler}) => {
         const node = document.querySelector(selector);
         if (node) {
@@ -16,8 +16,3 @@ const handler = () => {
         }
     })
 }
-
-window.addEventListener('load', handler);
-window.addEventListener('hashchange', () => {
-    setTimeout(handler, 300)
-});

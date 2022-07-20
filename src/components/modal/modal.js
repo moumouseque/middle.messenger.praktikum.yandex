@@ -2,4 +2,4 @@ import template from './modal.hbs';
 
 import './modal.css';
 
-export default ({content}) => template({content});
+export default ({content, closeClassName, className}) => template({content, closeClassName, className});

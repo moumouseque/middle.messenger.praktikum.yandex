@@ -29,9 +29,7 @@ registerEventListener({
     handler: (event) => {
         event.preventDefault();
         console.log('login');
-        window.location.hash = '#chat';
-        // window.history.replaceState(undefined, undefined, '#chat');
-        // console.log(Array.from(new FormData(loginForm).entries()));
+        window.location.href = '/chat';
     }
 });
 

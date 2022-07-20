@@ -2,11 +2,10 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--transporentGrayColor);
-    opacity: 0.5;
+    display: none;
 
     &__body {
         background-color: var(--mainWhiteColor);

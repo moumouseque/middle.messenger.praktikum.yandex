@@ -53,8 +53,8 @@ registerEventListener({
     eventType: 'submit',
     handler: (event) => {
         event.preventDefault();
+        window.location.href = '/chat';
         console.log('signup');
-        // console.log(Array.from(new FormData(loginForm).entries()));
     }
 })
 

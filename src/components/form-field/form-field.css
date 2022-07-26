@@ -1,0 +1,39 @@
+.form-field {
+    &__content {
+        background-color: var(--mainGrayColor);
+        height: 60px;
+        width: 300px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    &__label {
+        font-size: 13px;
+        display: block;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        background-color: var(--mainGrayColor);
+        border: none;
+        outline-color: var(--mainGreenColor);
+        font-size: 16px;
+        padding-left: 10px;
+        padding-top: 24px;
+        border-bottom: 1px solid var(--mainGreenColor);
+
+        &:invalid {
+            border-bottom-color: var(--mainRedColor);
+        }
+    }
+
+    &__error {
+        color: var(--mainRedColor);
+        padding: 5px 5px 5px 10px;
+        font-size: 13px;
+    }
+}

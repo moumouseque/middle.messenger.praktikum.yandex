@@ -1,9 +1,9 @@
-<div class="form-field__content">
-    <span class="form-field__label">{{label}}</span>
-    <input class="form-field__input" name="{{name}}" type="{{type}}">
-    <div class="form-field__error">
-        {{#if error}}
-            <span>{{errorText}}</span>
-        {{/if}}
-    </div>
+<div class="form-field">
+  <span class="form-field__label">{{label}}</span>
+  {{{input}}}
+  <div class="form-field__error">
+    {{#if errorText}}
+      <span>{{errorText}}</span>
+    {{/if}}
+  </div>
 </div>

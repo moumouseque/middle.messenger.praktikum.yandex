@@ -11,3 +11,5 @@
 
 ## Макеты
 [figma](https://www.figma.com/file/80DNJZZ7MGjpPZp2OiTPqN/Messenger?node-id=0%3A1)
+
+[Pull Request](https://github.com/moumouseque/middle.messenger.praktikum.yandex/pull/2)

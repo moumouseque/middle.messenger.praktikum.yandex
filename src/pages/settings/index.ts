@@ -1,3 +1,3 @@
-import settings from './settings';
+import Settings from './settings';
 
-export default settings;
+export default Settings;

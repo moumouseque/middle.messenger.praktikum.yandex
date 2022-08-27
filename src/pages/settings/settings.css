@@ -29,7 +29,7 @@
     align-items: center;
   }
 
-  &__logout-link {
+  &__logout-button {
     color: var(--main-red-color);
 
     &:hover {

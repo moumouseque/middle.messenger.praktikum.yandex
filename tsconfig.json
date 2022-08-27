@@ -2,9 +2,11 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "es2017",
-    "allowJs": true,
     "declaration": false,
     "module": "commonjs",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "strict": true,
     "sourceMap": true
   },

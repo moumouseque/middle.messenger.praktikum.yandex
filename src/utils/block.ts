@@ -4,7 +4,7 @@ import { v4 as makeUUID } from 'uuid';
 import EventBus from './event-bus';
 import flatten from './flatten';
 
-type BaseProps<T = {}> = Record<string, any> & {
+export type BaseProps<T = {}> = Record<string, any> & {
   events?: Record<string, (event: any) => void>;
   children?: Array<Block>;
   id?: string;
@@ -110,15 +110,20 @@ class Block<T = {}> {
 
     Object.values(this.children).forEach((child) => {
       if (Array.isArray(child)) {
-        child.forEach((item) => item.dispatchComponentDidMount());
+        child.forEach((item) => {
+          if (item.dispatchComponentDidMount) {
+            item.dispatchComponentDidMount();
+          }
+        });
       } else {
         child.dispatchComponentDidMount();
       }
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // @ts-ignore:next-line
   componentDidMount(oldProps?: T) {
+
   }
 
   dispatchComponentDidMount() {
@@ -134,7 +139,7 @@ class Block<T = {}> {
     this.selfRender();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // @ts-ignore:next-line
   componentDidUpdate(oldProps?: T, newProps?: T) {
     return true;
   }

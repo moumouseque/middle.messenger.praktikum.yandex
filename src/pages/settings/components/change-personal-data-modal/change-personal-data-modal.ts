@@ -8,6 +8,8 @@ import template from './change-personal-data-modal.hbs';
 
 import './change-personal-data-modal.css';
 import submitValidation from '../../../../utils/submit-validation';
+import SettingsService from '../../services/settings-service';
+import { ProfileData } from '../../../../api/types/user-types';
 
 const fieldsData: FormFieldItemData[] = [
   {
@@ -75,9 +77,9 @@ class Content extends Block<Props> {
     const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
 
     if (formIsValid) {
-      console.log(Object.fromEntries(formData));
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      modal.hide();
+      SettingsService.changeProfile(Object.fromEntries(formData) as ProfileData)
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        .then(() => modal.hide());
     }
   };
 

@@ -2,37 +2,56 @@ import Block from '../../../../utils/block';
 import Button from '../../../../components/button';
 import FormField from '../../../../components/form-field';
 import validators from '../../../../validators';
+import submitValidation from '../../../../utils/submit-validation';
+import chatService from '../../services/chat-service';
 
 import template from './message-form.hbs';
 
 import './message-form.css';
 
-const messageField = {
+const fieldsData = [{
   name: 'message',
   type: 'text',
   validator: validators.requiredValidator,
-};
+}];
 
 const button = new Button({
   text: 'Отправить',
   type: 'submit',
 });
 
-const input = new FormField({ ...messageField });
+type Props = {
+  button: Button;
+  fields: FormField[];
+};
 
-class MessageForm extends Block {
+class MessageForm extends Block<Props> {
+  constructor(props: Props) {
+    super(props);
+
+    this.setProps({
+      events: {
+        submit: (event: Event) => this.handelSubmit(event),
+      },
+    });
+  }
+
+  handelSubmit = (event: Event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
+    const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
+
+    if (formIsValid) {
+      chatService.sendMessage(Object.fromEntries(formData).message as string);
+    }
+  };
+
   render() {
     return this.compile(template);
   }
 }
 
 export default new MessageForm({
-  input,
+  fields: fieldsData.map((field) => new FormField(field)),
   button,
-  events: {
-    submit: (event) => {
-      event.preventDefault();
-      console.log('+++send message');
-    },
-  },
 });

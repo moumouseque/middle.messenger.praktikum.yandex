@@ -3,10 +3,12 @@ import FormField, { FormFieldItemData } from '../../../../components/form-field'
 import Button from '../../../../components/button';
 import submitValidation from '../../../../utils/submit-validation';
 import validators from '../../../../validators';
+import LoginService from '../../services/login-service';
 
 import template from './login-form.hbs';
 
 import './login-form.css';
+import { SigninData } from '../../../../api/types/auth-types';
 
 const fieldsData: FormFieldItemData[] = [
   {
@@ -45,8 +47,7 @@ class LoginForm extends Block<Props> {
     const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
 
     if (formIsValid) {
-      console.log(Object.fromEntries(formData));
-      window.location.href = '/chat';
+      LoginService.login(Object.fromEntries(formData) as SigninData);
     }
   };
 

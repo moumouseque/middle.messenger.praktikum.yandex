@@ -18,6 +18,7 @@ class ChatSocket {
     this.socket.addEventListener('error', (event) => {
       // eslint-disable-next-line no-console
       console.log('Ошибка', event);
+      clearInterval(this.intervalId);
     });
     this.socket.addEventListener('close', () => {
       clearInterval(this.intervalId);

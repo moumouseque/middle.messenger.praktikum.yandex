@@ -1,6 +1,7 @@
 import Block from '../../utils/block';
-
+import Routes from '../../enums/routes';
 import ServicePageInfo from '../../components/service-page-info/service-page-info';
+
 import template from './not-found.hbs';
 
 import './not-found.css';
@@ -9,17 +10,19 @@ const content = new ServicePageInfo({
   title: '404',
   subtitle: 'Такой страницы нет',
   linkText: 'Назад к чатам',
-  linkUrl: 'chat',
+  linkUrl: Routes.Messenger,
 });
 
-type Props = {
-  content: Block;
-};
+class NotFound extends Block {
+  constructor() {
+    super({});
 
-class NotFound extends Block<Props> {
+    Object.assign(this.children, { content });
+  }
+
   render() {
     return this.compile(template, this.props);
   }
 }
 
-export default new NotFound({ content });
+export default NotFound;

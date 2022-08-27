@@ -6,6 +6,9 @@
   justify-content: center;
   background-color: var(--transporent-gray-color);
   display: flex;
+  top: 0;
+  left: 0;
+  z-index: 100;
 
   &__body {
     background-color: var(--main-white-color);

@@ -2,11 +2,13 @@ import Block from '../../../../utils/block';
 import FormField, { FormFieldItemData } from '../../../../components/form-field';
 import Button from '../../../../components/button';
 import validators from '../../../../validators';
+import submitValidation from '../../../../utils/submit-validation';
 
 import template from './signup-form.hbs';
 
 import './signup-form.css';
-import submitValidation from '../../../../utils/submit-validation';
+import SignupService from '../../services/signup-service';
+import { SignupData } from '../../../../api/types/auth-types';
 
 const fieldsData: FormFieldItemData[] = [
   {
@@ -75,8 +77,7 @@ class SignupForm extends Block<Props> {
     const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
 
     if (formIsValid) {
-      console.log(Object.fromEntries(formData));
-      window.location.href = '/chat';
+      SignupService.signup(Object.fromEntries(formData) as SignupData);
     }
   };
 

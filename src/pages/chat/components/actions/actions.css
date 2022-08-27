@@ -1,0 +1,25 @@
+.actions {
+  position: relative;
+  margin-left: auto;
+
+  &__list {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+    background-color: var(--main-white-color);
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid var(--main-green-color);
+  }
+
+  &:hover {
+    .actions__list {
+      display: flex;
+    }
+  }
+}

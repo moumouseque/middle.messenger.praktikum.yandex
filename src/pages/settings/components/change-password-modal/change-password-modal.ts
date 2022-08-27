@@ -3,11 +3,13 @@ import FormField from '../../../../components/form-field';
 import Modal from '../../../../components/modal';
 import Button from '../../../../components/button';
 import validators from '../../../../validators';
+import submitValidation from '../../../../utils/submit-validation';
+import SettingsService from '../../services/settings-service';
+import { PasswordData } from '../../../../api/types/user-types';
 
 import template from './change-password-modal.hbs';
 
 import './change-password-modal.css';
-import submitValidation from '../../../../utils/submit-validation';
 
 const fieldsData = [
   {
@@ -58,9 +60,9 @@ class Content extends Block<Props> {
     const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
 
     if (formIsValid) {
-      console.log(Object.fromEntries(formData));
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      modal.hide();
+      SettingsService.changePassword(Object.fromEntries(formData) as PasswordData)
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        .then(() => modal.hide());
     }
   };
 

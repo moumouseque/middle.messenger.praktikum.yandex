@@ -5,7 +5,7 @@ import template from './contact-avatar.hbs';
 import './contact-avatar.css';
 
 type Props = {
-  avatar: string;
+  avatar: string | null;
 };
 
 class ContactAvatar extends Block<Props> {

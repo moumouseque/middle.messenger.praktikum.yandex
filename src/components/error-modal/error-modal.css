@@ -1,0 +1,11 @@
+.error-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}

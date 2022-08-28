@@ -1,5 +1,4 @@
 import Block from '../../utils/block';
-
 import Button from '../../components/button';
 import SettingsItem from './components/settings-item';
 import Avatar from './components/avatar';
@@ -14,6 +13,7 @@ import { State } from '../../types';
 import { UserData } from '../../api/types/user-types';
 import convertUserToSettingsItems from './utils';
 import authService from '../../services/auth-service';
+import errorModal from '../../components/error-modal';
 
 import template from './settings.hbs';
 
@@ -73,6 +73,7 @@ class Settings extends Block<Props> {
       changePersonalDataModal,
       changePasswordModal,
       changeAvatarModal,
+      errorModal,
     });
   }
 
@@ -81,9 +82,6 @@ class Settings extends Block<Props> {
       ?.map((item) => new SettingsItem(item));
     Object.assign(this.children, {
       settingsItems,
-    });
-    this.setProps({
-      login: userData.login,
     });
   };
 
@@ -98,6 +96,7 @@ class Settings extends Block<Props> {
   componentDidUpdate(oldProps?: Props, newProps?: Props): boolean {
     if (oldProps?.userData !== newProps?.userData && newProps?.userData) {
       this.setSettingsData(newProps?.userData);
+      return false;
     }
     return true;
   }
@@ -109,6 +108,7 @@ class Settings extends Block<Props> {
 
 const mapStateToProps = (state: State) => ({
   userData: state?.user?.data,
+  login: state?.user?.data?.login,
 });
 
 const ConnectedSettings = connect<Props, ReturnType<typeof mapStateToProps>>(

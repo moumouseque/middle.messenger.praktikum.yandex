@@ -13,5 +13,9 @@ export interface State extends Record<string, any> {
       messages: ChatMessage[];
       id: number;
     }
+  },
+  error: {
+    message?: string,
+    errorMessage: string,
   }
 }

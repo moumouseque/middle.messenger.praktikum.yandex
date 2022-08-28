@@ -9,7 +9,7 @@ class AuthService {
       if (response.status === 200) {
         store.set('user.data', JSON.parse(response.response));
       } else {
-        throw JSON.parse(response.response);
+        throw response.response;
       }
     })
     .catch((error) => {

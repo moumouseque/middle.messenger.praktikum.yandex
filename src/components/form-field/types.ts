@@ -5,4 +5,5 @@ export type FormFieldItemData = {
   type: string;
   label?: string;
   validator?: Validator;
+  value?: string;
 };

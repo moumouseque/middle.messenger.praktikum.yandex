@@ -3,13 +3,15 @@ import FormField, { FormFieldItemData } from '../../../../components/form-field'
 import Modal from '../../../../components/modal';
 import Button from '../../../../components/button';
 import validators from '../../../../validators';
+import submitValidation from '../../../../utils/submit-validation';
+import SettingsService from '../../services/settings-service';
+import { ProfileData, UserData } from '../../../../api/types/user-types';
+import { State } from '../../../../types';
+import connect from '../../../../utils/connect';
 
 import template from './change-personal-data-modal.hbs';
 
 import './change-personal-data-modal.css';
-import submitValidation from '../../../../utils/submit-validation';
-import SettingsService from '../../services/settings-service';
-import { ProfileData } from '../../../../api/types/user-types';
 
 const fieldsData: FormFieldItemData[] = [
   {
@@ -53,33 +55,50 @@ const submit = new Button({
   text: 'Сохранить',
   type: 'submit',
 });
-const fields = fieldsData.map((item) => new FormField(item));
 
 type Props = {
   submit: Button;
-  fields: FormField[];
+  fields?: FormField[];
+  userData?: UserData;
 };
 
 class Content extends Block<Props> {
   constructor(props: Props) {
-    super(props);
+    const fields = fieldsData.map((item) => new FormField(item));
+    super({ ...props, fields });
 
-    Object.assign(this.props, {
+    this.setProps({
       events: {
         submit: (event: Event) => this.handelSubmit(event),
       },
     });
   }
 
+  componentDidUpdate(oldProps?: Props, newProps?: Props): boolean {
+    if (oldProps?.userData !== newProps?.userData && newProps?.userData) {
+      const fildsWithValue = fieldsData.map((field) => ({
+        ...field,
+        value: newProps?.userData?.[field.name as keyof UserData]?.toString(),
+      }));
+      Object.assign(this.children, {
+        fields: fildsWithValue.map((item) => new FormField(item)),
+      });
+    }
+
+    return true;
+  }
+
   handelSubmit = (event: Event) => {
     event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
+    const target = event.target as HTMLFormElement;
+    const formData = new FormData(target);
     const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
 
     if (formIsValid) {
       SettingsService.changeProfile(Object.fromEntries(formData) as ProfileData)
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        .then(() => modal.hide());
+        .then(() => modal.hide())
+        .then(() => target.reset());
     }
   };
 
@@ -88,9 +107,17 @@ class Content extends Block<Props> {
   }
 }
 
-const content = new Content({
+const mapStateToProps = (state: State) => ({
+  userData: state?.user?.data,
+});
+
+const ConnectedContent = connect<Props, ReturnType<typeof mapStateToProps>>(
+  Content,
+  mapStateToProps,
+);
+
+const content = new ConnectedContent({
   submit,
-  fields,
 });
 
 const modal = new Modal({ content });

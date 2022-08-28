@@ -4,11 +4,13 @@ import Routes from '../../../enums/routes';
 import store from '../../../utils/store';
 import { PasswordData, ProfileData } from '../../../api/types/user-types';
 import usersAPI from '../../../api/users-api';
+import errorHandler from '../../../utils/error-handler';
 
 class SettingsService {
   public static logout = () => {
     authAPI.logout()
-      .then(() => router.go(Routes.Login));
+      .then(() => router.go(Routes.Login))
+      .catch((error) => errorHandler(error));
   };
 
   public static getUserData = () => {
@@ -17,9 +19,10 @@ class SettingsService {
         if (response.status === 200) {
           store.set('user.data', JSON.parse(response.response));
         } else {
-          throw JSON.parse(response.response);
+          throw response.response;
         }
-      });
+      })
+      .catch((error) => errorHandler(error));
   };
 
   public static changeProfile = (data: ProfileData) => usersAPI.changeProfile(data)
@@ -27,9 +30,10 @@ class SettingsService {
       if (response.status === 200) {
         store.set('user.data', JSON.parse(response.response));
       } else {
-        throw JSON.parse(response.response);
+        throw response.response;
       }
-    });
+    })
+    .catch((error) => errorHandler(error));
 
   public static changePassword = (data: PasswordData) => usersAPI.changePassword(data);
 
@@ -38,9 +42,10 @@ class SettingsService {
       if (response.status === 200) {
         store.set('user.data', JSON.parse(response.response));
       } else {
-        throw JSON.parse(response.response);
+        throw response.response;
       }
-    });
+    })
+    .catch((error) => errorHandler(error));
 }
 
 export default SettingsService;

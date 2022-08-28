@@ -6,6 +6,7 @@ type Props = {
   name: string;
   type: string;
   value?: string;
+  placeholder?: string;
   className?: string;
   events?: BaseProps['events'];
 };

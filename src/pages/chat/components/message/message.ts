@@ -1,8 +1,8 @@
 import Block from '../../../../utils/block';
 
-import template from './message.hbs';
-
 import './message.css';
+
+const template = require('./message.hbs');
 
 type Props = {
   content: string;

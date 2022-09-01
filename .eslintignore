@@ -1,5 +1,5 @@
 /dist
 /.cache
-/.parcel-cache
 **/*.min.js
 /node_modules
+webpack.*.js

@@ -5,9 +5,9 @@ import Button from '../../../../components/button';
 import submitValidation from '../../../../utils/submit-validation';
 import SettingsService from '../../services/settings-service';
 
-import template from './change-avatar-modal.hbs';
-
 import './change-avatar-modal.css';
+
+const template = require('./change-avatar-modal.hbs');
 
 const fieldsData = [
   {

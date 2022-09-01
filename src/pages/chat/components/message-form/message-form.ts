@@ -5,9 +5,9 @@ import validators from '../../../../validators';
 import submitValidation from '../../../../utils/submit-validation';
 import chatService from '../../services/chat-service';
 
-import template from './message-form.hbs';
-
 import './message-form.css';
+
+const template = require('./message-form.hbs');
 
 const fieldsData = [{
   name: 'message',

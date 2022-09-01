@@ -1,9 +1,9 @@
 import Block, { BaseProps } from '../../../../utils/block';
 import ContactAvatar from '../contact-avatar';
 
-import template from './contact.hbs';
-
 import './contact.css';
+
+const template = require('./contact.hbs');
 
 type Props = {
   avatar: string | null;

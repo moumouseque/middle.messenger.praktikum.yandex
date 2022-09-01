@@ -4,9 +4,9 @@ import { State } from '../../types';
 import Modal from '../modal';
 import Button from '../button';
 
-import template from './error-modal.hbs';
-
 import './error-modal.css';
+
+const template = require('./error-modal.hbs');
 
 const submit: Button = new Button({
   text: 'Ок',

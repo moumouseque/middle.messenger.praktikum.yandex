@@ -1,13 +1,14 @@
 import Block from '../../../../utils/block';
 
-import template from './messages-block.hbs';
 import { State } from '../../../../types';
 import connect from '../../../../utils/connect';
 import Message from '../message';
 import { ChatMessage } from '../../../../api/types/chat-types';
+import convertToMessageDateTime from '../../../../utils/date';
 
 import './messages-block.css';
-import convertToMessageDateTime from '../../../../utils/date';
+
+const template = require('./messages-block.hbs');
 
 type Props = {
   messagesItems?: ChatMessage[];

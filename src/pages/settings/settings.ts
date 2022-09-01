@@ -1,7 +1,7 @@
 import Block from '../../utils/block';
 import Button from '../../components/button';
 import SettingsItem from './components/settings-item';
-import Avatar from './components/avatar';
+import ProfileAvatar from './components/profile-avatar';
 import Link from '../../components/link';
 import changePersonalDataModal from './components/change-personal-data-modal';
 import changePasswordModal from './components/change-password-modal';
@@ -15,12 +15,12 @@ import convertUserToSettingsItems from './utils';
 import authService from '../../services/auth-service';
 import errorModal from '../../components/error-modal';
 
-import template from './settings.hbs';
-
 import './settings.css';
 
+const template = require('./settings.hbs');
+
 const toChatLink = new Link({ url: Routes.Messenger, text: '< К чатам' });
-const avatar = new Avatar({
+const avatar = new ProfileAvatar({
   events: {
     click: () => {
       changeAvatarModal.show();

@@ -9,9 +9,9 @@ import { ProfileData, UserData } from '../../../../api/types/user-types';
 import { State } from '../../../../types';
 import connect from '../../../../utils/connect';
 
-import template from './change-personal-data-modal.hbs';
-
 import './change-personal-data-modal.css';
+
+const template = require('./change-personal-data-modal.hbs');
 
 const fieldsData: FormFieldItemData[] = [
   {

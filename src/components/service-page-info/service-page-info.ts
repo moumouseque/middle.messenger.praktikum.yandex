@@ -1,9 +1,9 @@
 import Block from '../../utils/block';
 import Link from '../link';
 
-import template from './service-page-info.hbs';
-
 import './service-page-info.css';
+
+const template = require('./service-page-info.hbs');
 
 type Props = {
   title: string;

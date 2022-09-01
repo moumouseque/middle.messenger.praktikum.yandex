@@ -1,9 +1,9 @@
 import Block from '../../utils/block';
 import Button from '../button';
 
-import template from './modal.hbs';
-
 import './modal.css';
+
+const template = require('./modal.hbs');
 
 type Props = {
   content: Block;

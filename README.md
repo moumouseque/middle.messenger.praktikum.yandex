@@ -10,7 +10,7 @@
 - `npm install` — установка стабильной версии,
 - `npm start` — сборка и запуск локально стабильной версии
 - `npm run dev` — запуск версии для разработчика,
-- `npm run build` — сборка стабильной версии,
+- `npm run build` — сборка production версии,
 - `npm run check-all` — запуск всех линтеров,
 - `npm run test` — запуск тестов.
 - `npm run heroku-deploy` - запуск деплоя на heroku

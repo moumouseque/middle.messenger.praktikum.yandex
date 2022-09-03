@@ -2,9 +2,9 @@ import Block from '../../utils/block';
 import Input from '../input';
 import { Validator, RecordEvent } from '../../types';
 
-import template from './form-field.hbs';
-
 import './form-field.css';
+
+const template = require('./form-field.hbs');
 
 type Props = {
   name: string;
@@ -12,6 +12,7 @@ type Props = {
   label?: string;
   errorText?: string;
   validator?: Validator;
+  value?: string;
 };
 
 class FormField extends Block<Props> {
@@ -21,6 +22,7 @@ class FormField extends Block<Props> {
     this.children.input = new Input({
       name: props.name,
       type: props.type,
+      value: props.value,
       className: 'form-field__input',
       events: {
         blur: (event: RecordEvent<HTMLInputElement>) => {

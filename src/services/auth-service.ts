@@ -1,6 +1,6 @@
 import authAPI from '../api/auth-api';
 import store from '../utils/store';
-import router from '../routes';
+import { router } from '../utils/router';
 import Routes from '../enums/routes';
 
 class AuthService {
@@ -9,7 +9,7 @@ class AuthService {
       if (response.status === 200) {
         store.set('user.data', JSON.parse(response.response));
       } else {
-        throw JSON.parse(response.response);
+        throw response.response;
       }
     })
     .catch((error) => {

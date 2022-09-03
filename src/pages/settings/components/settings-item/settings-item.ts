@@ -1,8 +1,8 @@
 import Block from '../../../../utils/block';
 
-import template from './settings-item.hbs';
-
 import './settings-item.css';
+
+const template = require('./settings-item.hbs');
 
 type Props = {
   title: string;

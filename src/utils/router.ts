@@ -78,4 +78,6 @@ class Router {
   }
 }
 
+export const router = new Router('#root');
+
 export default Router;

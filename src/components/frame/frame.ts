@@ -1,8 +1,8 @@
 import Block from '../../utils/block';
 
-import template from './frame.hbs';
-
 import './frame.css';
+
+const template = require('./frame.hbs');
 
 type Props = {
   title: string;

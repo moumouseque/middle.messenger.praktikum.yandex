@@ -2,9 +2,9 @@ import Block from '../../utils/block';
 import ServicePageInfo from '../../components/service-page-info/service-page-info';
 import Routes from '../../enums/routes';
 
-import template from './error-page.hbs';
-
 import './error-page.css';
+
+const template = require('./error-page.hbs');
 
 const content = new ServicePageInfo({
   title: 'Ошибка',

@@ -4,9 +4,9 @@ import addChatModal from './components/add-chat-modal';
 import addContactModal from './components/add-contact-modal';
 import deleteContactModal from './components/delete-contact-modal';
 
-import template from './actions.hbs';
-
 import './actions.css';
+
+const template = require('./actions.hbs');
 
 const actionButton = new Button({ theme: 'link', text: 'Действия', className: 'actions__button' });
 const newChatButton = new Button({

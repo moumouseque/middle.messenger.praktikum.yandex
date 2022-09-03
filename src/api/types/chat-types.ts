@@ -1,15 +1,17 @@
 import { UserData } from './user-types';
 
+export type LastMessage = {
+  content: string;
+  id: number;
+  time: string;
+  user: Omit<UserData, 'id'>;
+};
+
 export type ChatData = {
   avatar: string | null;
   created_by: number;
   id: number;
-  last_message: {
-    content: string;
-    id: number;
-    time: string;
-    user: Omit<UserData, 'id'>;
-  };
+  last_message: LastMessage;
   title: string;
   unread_count: number;
 };

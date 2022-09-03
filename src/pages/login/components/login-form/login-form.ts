@@ -4,11 +4,11 @@ import Button from '../../../../components/button';
 import submitValidation from '../../../../utils/submit-validation';
 import validators from '../../../../validators';
 import LoginService from '../../services/login-service';
-
-import template from './login-form.hbs';
+import { SigninData } from '../../../../api/types/auth-types';
 
 import './login-form.css';
-import { SigninData } from '../../../../api/types/auth-types';
+
+const template = require('./login-form.hbs');
 
 const fieldsData: FormFieldItemData[] = [
   {

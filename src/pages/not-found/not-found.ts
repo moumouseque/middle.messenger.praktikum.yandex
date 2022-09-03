@@ -2,9 +2,9 @@ import Block from '../../utils/block';
 import Routes from '../../enums/routes';
 import ServicePageInfo from '../../components/service-page-info/service-page-info';
 
-import template from './not-found.hbs';
-
 import './not-found.css';
+
+const template = require('./not-found.hbs');
 
 const content = new ServicePageInfo({
   title: '404',

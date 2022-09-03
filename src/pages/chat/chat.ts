@@ -1,3 +1,4 @@
+import authService from '../../services/auth-service';
 import Block from '../../utils/block';
 import Contact from './components/contact';
 import Link from '../../components/link';
@@ -12,11 +13,11 @@ import { State } from '../../types';
 import { ChatData } from '../../api/types';
 import MessagesBlock from './components/messages-block';
 import convertToMessageDateTime from '../../utils/date';
-import authService from '../../services/auth-service';
-
-import template from './chat.hbs';
+import errorModal from '../../components/error-modal';
 
 import './chat.css';
+
+const template = require('./chat.hbs');
 
 const settingsLink = new Link({
   text: '< Профиль',
@@ -40,6 +41,7 @@ class Chat extends Block<Props> {
       avatar,
       settingsLink,
       messageForm,
+      errorModal,
       actions,
       messagesBlock,
       searchForm: new SearchForm({

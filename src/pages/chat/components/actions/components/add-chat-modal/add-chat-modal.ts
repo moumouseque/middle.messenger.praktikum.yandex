@@ -5,9 +5,9 @@ import submitValidation from '../../../../../../utils/submit-validation';
 import Modal from '../../../../../../components/modal';
 import chatService from '../../../../services/chat-service';
 
-import template from './add-chat-modal.hbs';
-
 import './add-chat-modal.css';
+
+const template = require('./add-chat-modal.hbs');
 
 const fieldsData = [
   {
@@ -41,13 +41,15 @@ class Content extends Block<Props> {
 
   handelSubmit = (event: Event) => {
     event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement);
+    const target = event.target as HTMLFormElement;
+    const formData = new FormData(target);
     const formIsValid = submitValidation(formData, fieldsData, this.children.fields as Block[]);
 
     if (formIsValid) {
       chatService.createChat(formData.get('title') as string)
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        .then(() => modal.hide());
+        .then(() => modal.hide())
+        .then(() => target.reset());
     }
   };
 

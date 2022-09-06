@@ -1,5 +1,5 @@
 import authApi from '../../../api/auth-api';
-import { router } from '../../../utils/router';
+import router from '../../../routing';
 import Routes from '../../../enums/routes';
 import store from '../../../utils/store';
 import { SigninData } from '../../../api/types/auth-types';

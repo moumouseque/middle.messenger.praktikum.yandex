@@ -1,4 +1,4 @@
-import { router } from './utils/router';
+import router from './routing';
 import Routes from './enums/routes';
 import Login from './pages/login';
 import Block from './utils/block';

@@ -13,7 +13,7 @@
     "check-ts": "tsc --noEmit",
     "check-linter": "eslint --ext .ts ./src",
     "check-styles": "npx stylelint \"**/*.css\"",
-    "check-all": "npm run check-ts && npm run check-linter && npm run check-styles",
+    "check-all": "npm run check-ts && npm run check-linter && npm run check-styles && npm test",
     "push-docker-heroku": "npx heroku container:push web && heroku container:release web",
     "heroku-deploy": "npm run build && npm run push-docker-heroku",
     "prepare": "husky install"

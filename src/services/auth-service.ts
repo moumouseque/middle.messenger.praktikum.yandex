@@ -1,6 +1,6 @@
 import authAPI from '../api/auth-api';
 import store from '../utils/store';
-import { router } from '../utils/router';
+import router from '../routing';
 import Routes from '../enums/routes';
 
 class AuthService {

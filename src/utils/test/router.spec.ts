@@ -1,9 +1,8 @@
 // eslint-disable-next-line max-classes-per-file
 import { JSDOM } from 'jsdom';
-import Handlebars = require('handlebars');
 import { TemplateDelegate } from 'handlebars';
 import { expect } from 'chai';
-
+import Handlebars = require('handlebars');
 import Block from '../block';
 import Router from '../router';
 
@@ -26,7 +25,7 @@ class Logout extends Block {
 }
 
 describe('ROUTER', () => {
-  let router: Router;
+  let router: any;
 
   before(() => {
     const { window } = new JSDOM(`

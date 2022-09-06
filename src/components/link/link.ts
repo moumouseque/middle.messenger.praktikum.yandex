@@ -1,5 +1,5 @@
 import Block from '../../utils/block';
-import { router } from '../../utils/router';
+import router from '../../routing';
 
 import './link.css';
 

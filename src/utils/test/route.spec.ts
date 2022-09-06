@@ -1,8 +1,7 @@
 import { JSDOM } from 'jsdom';
-import Handlebars = require('handlebars');
 import { TemplateDelegate } from 'handlebars';
 import { expect } from 'chai';
-
+import Handlebars = require('handlebars');
 import Block from '../block';
 import Route from '../route';
 
@@ -30,8 +29,8 @@ describe('ROUTE', () => {
       url: 'http://localhost',
     });
 
-    global.document = window.document;
     global.window = window as any;
+    global.document = window.document;
 
     route = new Route('/login', Component as typeof Block, { rootQuery: '#root' });
   });

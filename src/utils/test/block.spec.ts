@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import Handlebars = require('handlebars');
 import { JSDOM } from 'jsdom';
 import { TemplateDelegate } from 'handlebars';
+import Handlebars = require('handlebars');
 import Block from '../block';
 
 const template = Handlebars.compile(`
@@ -23,8 +23,8 @@ describe('Block', () => {
       url: 'http://localhost',
     });
 
-    global.document = window.document;
     global.window = window as any;
+    global.document = window.document;
 
     component = new Component({ content: 'testContent' });
   });

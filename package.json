@@ -55,7 +55,7 @@
     "mocha": "10.0.0",
     "postcss": "8.4.16",
     "postcss-custom-properties": "12.1.8",
-    "postcss-import": "15.0.0",
+    "postcss-import": "14.1.0",
     "postcss-loader": "7.0.1",
     "postcss-nested": "5.0.6",
     "postcss-url": "10.1.3",

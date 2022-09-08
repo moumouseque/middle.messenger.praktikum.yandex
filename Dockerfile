@@ -1,8 +1,6 @@
-FROM nginx:alpine
-COPY ./dist/* /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf.template
-
-RUN adduser -D myuser
-USER myuser
-
-CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
+FROM node:14.20.0-alpine3.16
+WORKDIR /var/www
+COPY package*.json .
+RUN npm ci
+COPY . .
+CMD ["npm","start"]

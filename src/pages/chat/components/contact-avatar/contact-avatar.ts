@@ -1,8 +1,8 @@
 import Block from '../../../../utils/block';
 
-import template from './contact-avatar.hbs';
-
 import './contact-avatar.css';
+
+const template = require('./contact-avatar.hbs');
 
 type Props = {
   avatar: string | null;

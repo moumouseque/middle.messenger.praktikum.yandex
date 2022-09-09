@@ -1,6 +1,6 @@
 import Block, { BaseProps } from '../../utils/block';
 
-import template from './input.hbs';
+const template = require('./input.hbs');
 
 type Props = {
   name: string;

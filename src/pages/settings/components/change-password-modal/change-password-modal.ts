@@ -7,9 +7,9 @@ import submitValidation from '../../../../utils/submit-validation';
 import SettingsService from '../../services/settings-service';
 import { PasswordData } from '../../../../api/types/user-types';
 
-import template from './change-password-modal.hbs';
-
 import './change-password-modal.css';
+
+const template = require('./change-password-modal.hbs');
 
 const fieldsData = [
   {

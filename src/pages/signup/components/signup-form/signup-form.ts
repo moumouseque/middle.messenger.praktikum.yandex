@@ -3,12 +3,12 @@ import FormField, { FormFieldItemData } from '../../../../components/form-field'
 import Button from '../../../../components/button';
 import validators from '../../../../validators';
 import submitValidation from '../../../../utils/submit-validation';
-
-import template from './signup-form.hbs';
-
-import './signup-form.css';
 import SignupService from '../../services/signup-service';
 import { SignupData } from '../../../../api/types/auth-types';
+
+import './signup-form.css';
+
+const template = require('./signup-form.hbs');
 
 const fieldsData: FormFieldItemData[] = [
   {

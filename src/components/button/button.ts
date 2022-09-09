@@ -1,7 +1,8 @@
 import Block from '../../utils/block';
-import template from './button.hbs';
 
 import './button.css';
+
+const template = require('./button.hbs');
 
 type Props = {
   text: string;

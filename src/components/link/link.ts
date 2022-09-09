@@ -1,9 +1,9 @@
 import Block from '../../utils/block';
-import router from '../../routes';
-
-import template from './link.hbs';
+import router from '../../routing';
 
 import './link.css';
+
+const template = require('./link.hbs');
 
 type Props = {
   url: string;

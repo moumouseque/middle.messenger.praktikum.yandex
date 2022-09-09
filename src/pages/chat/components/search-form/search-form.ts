@@ -1,9 +1,9 @@
 import Block from '../../../../utils/block';
 import Input from '../../../../components/input';
 
-import template from './search-form.hbs';
-
 import './search-form.css';
+
+const template = require('./search-form.hbs');
 
 type Props = {
   handleChange: (value: string) => void;

@@ -2,9 +2,9 @@ import Block from '../../utils/block';
 import Input from '../input';
 import { Validator, RecordEvent } from '../../types';
 
-import template from './form-field.hbs';
-
 import './form-field.css';
+
+const template = require('./form-field.hbs');
 
 type Props = {
   name: string;

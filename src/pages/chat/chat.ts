@@ -15,9 +15,9 @@ import MessagesBlock from './components/messages-block';
 import convertToMessageDateTime from '../../utils/date';
 import errorModal from '../../components/error-modal';
 
-import template from './chat.hbs';
-
 import './chat.css';
+
+const template = require('./chat.hbs');
 
 const settingsLink = new Link({
   text: '< Профиль',

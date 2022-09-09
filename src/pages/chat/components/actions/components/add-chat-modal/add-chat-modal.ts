@@ -5,9 +5,9 @@ import submitValidation from '../../../../../../utils/submit-validation';
 import Modal from '../../../../../../components/modal';
 import chatService from '../../../../services/chat-service';
 
-import template from './add-chat-modal.hbs';
-
 import './add-chat-modal.css';
+
+const template = require('./add-chat-modal.hbs');
 
 const fieldsData = [
   {

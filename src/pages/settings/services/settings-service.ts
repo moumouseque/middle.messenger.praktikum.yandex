@@ -1,5 +1,5 @@
 import authAPI from '../../../api/auth-api';
-import router from '../../../routes';
+import router from '../../../routing';
 import Routes from '../../../enums/routes';
 import store from '../../../utils/store';
 import { PasswordData, ProfileData } from '../../../api/types/user-types';

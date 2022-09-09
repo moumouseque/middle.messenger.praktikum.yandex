@@ -3,12 +3,12 @@ import Frame from '../../components/frame';
 import Link from '../../components/link';
 import signupForm from './components/signup-form';
 import Routes from '../../enums/routes';
-
-import template from './signup.hbs';
-
-import './signup.css';
 import { State } from '../../types';
 import connect from '../../utils/connect';
+
+import './signup.css';
+
+const template = require('./signup.hbs');
 
 const link = new Link({ url: Routes.Login, text: 'Войти', className: 'signup__link' });
 const frameContent = [
